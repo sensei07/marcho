@@ -1,6 +1,7 @@
 @import "vars";
 @import "fonts";
 @import "reset";
+@import "libs";
 @import "global";
 
 .header {
@@ -11,6 +12,7 @@
     align-items: center;
   }
 }
+
 .menu {
   &__list {
     display: flex;
@@ -24,14 +26,14 @@
     transition: all 0.1s;
     @extend %roboto-400;
     &:hover {
-      color: $accant;
-      border-bottom: 1px solid $accant;
+      color: $accent;
+      border-bottom: 1px solid $accent;
       @extend %roboto-700;
     }
   }
   &__list-link--active {
-    color: $accant;
-    border-bottom: 1px solid $accant;
+    color: $accent;
+    border-bottom: 1px solid $accent;
     @extend %roboto-700;
   }
 }
@@ -49,7 +51,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: $accant;
+    background-color: $accent;
     top: -9px;
     right: -14px;
     font-size: 12px;
@@ -102,7 +104,7 @@
     }
     &:hover {
       path {
-        fill: $accant;
+        fill: $accent;
       }
     }
   }
@@ -133,15 +135,11 @@
     }
   }
   &__form-btn {
-    box-shadow: 0px 7px 20px 0px rgba(255, 17, 48, 0.3);
-    border: none;
-    background-color: $accant;
-    color: #fff;
-    text-transform: uppercase;
-    padding: 12px 26px;
+    @extend %btn;
     cursor: pointer;
   }
 }
+
 .footer-bottom {
   height: 75px;
   display: flex;
@@ -152,6 +150,78 @@
     display: inline;
     margin-left: 25px;
     vertical-align: middle;
+  }
+}
+
+.top-slider {
+  background-image: url(../images/top-slider-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $bg;
+  padding: 65px 0 45px;
+  &__container {
+    max-width: 1650px;
+  }
+  &__content {
+    padding-left: 175px;
+    padding-top: 125px;
+  }
+  &__item {
+    display: flex !important;
+    justify-content: space-between;
+  }
+  &__title {
+    max-width: 670px;
+    font-size: 58px;
+    line-height: 68px;
+    color: $title;
+    @extend %roboto-700;
+    margin-bottom: 35px;
+  }
+  &__text {
+    max-width: 470px;
+    margin-bottom: 55px;
+  }
+  &__link {
+    @extend %btn;
+    padding: 14px 36px;
+  }
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
+    li {
+      padding: 0 5px;
+      button {
+        padding: 0;
+        font-size: 0;
+        background-color: transparent;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        position: relative;
+        &::before {
+          content: " ";
+          width: 6px;
+          height: 6px;
+          position: absolute;
+          border-radius: 50%;
+          background-color: $default;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      &.slick-active {
+        button {
+          border-color: $accent;
+          &::before {
+            background-color: $accent;
+          }
+        }
+      }
+    }
   }
 }
 
