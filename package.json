@@ -20,5 +20,8 @@
     "imagemin": "^8.0.0",
     "jquery": "^3.6.0",
     "slick-carousel": "^1.8.1"
+  },
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7"
   }
 }
