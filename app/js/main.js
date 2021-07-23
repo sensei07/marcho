@@ -120,3 +120,13 @@ $(function () {
   initializeClock("promo__clock", deadline);
 
 });
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 40.712778, lng: -74.006111 },
+    zoom: 12,
+  });
+}
+
